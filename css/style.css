@@ -1,0 +1,22 @@
+h1 {
+    font-family: 'Smooch Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 5rem;
+}
+button {
+    font-family: 'Smooch Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    background-color: #01127f; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #05ab07; /* Darker green */
+}

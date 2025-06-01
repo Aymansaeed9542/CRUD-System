@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>CRUD System</title>
+</head>
+
+<body>
+    <h1 class="text-center text-danger">Adding Product System</h1>
+    <form action="">
+        <div class="container">
+            <div class="row">
+                <div class="form-floating offset-3 w-50 mb-3">
+                    <input type="text" class="form-control" id="productName" placeholder="Enter product name">
+                    <label for="productName">Product Name</label>
+                </div>
+
+                <div class="form-floating offset-3 w-50 mb-3">
+                    <input type="number" class="form-control" id="productPrice" placeholder="Enter product price">
+                    <label for="productPrice">Product price</label>
+                </div>
+
+                <div class="form-floating offset-3 w-50 mb-3">
+                    <input list="productDescriptionList" type="text" class="form-control" id="productCategory" placeholder="Enter product category">
+                    <label for="productCategory">Product category</label>
+                    <datalist id="productDescriptionList">
+                        <option>phone</option>
+                        <option>tablet</option>
+                        <option>laptop</option>
+                    </datalist>
+                </div>
+
+                <div class="form-floating offset-3 w-50 mb-3">
+                    <input type="text" class="form-control" id="productDescription" placeholder="Enter product description">
+                    <label for="productDescription">Product description</label>
+                </div>
+
+                <div class="form-floating offset-3 w-50 mb-3">
+                    <input type="file" class="form-control" id="productImage" placeholder="Upload product image">
+                    <label for="productImage">Product image</label>
+                </div>
+
+                <button onclick="addProduct()" type="button" class="col-md-2 offset-md-3 button">Add Product</button>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <h2 class="text-center text-danger">Product List</h2>
+        <div id="productList" class="row">
+            <!-- Product items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
