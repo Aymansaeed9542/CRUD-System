@@ -34,7 +34,7 @@ function addProduct(){
     // Display products
     displayProducts();
     // Clear input fields
-    // ClearInputs();
+    ClearInputs();
 };
 
 // Function to display all products
@@ -99,4 +99,6 @@ function updateProduct(){
     productList[globalIndex].description = productDescription.value;
     displayProducts();
     saveProductsToLocalStorage();
+    addBtn.classList.remove("d-none");
+    updateBtn.classList.add("d-none");
 }
