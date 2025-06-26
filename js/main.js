@@ -18,6 +18,7 @@ function addProduct(){
     productList.push(object);
     console.log(productList);
     displayProducts();
+    ClearInputs();
 };
 
 function displayProducts() {
@@ -34,4 +35,12 @@ function displayProducts() {
             </div>`
     }
     document.getElementById("productList").innerHTML = cartonaa;
+}
+
+function ClearInputs(){
+    productName.value = null;
+    productPrice.value = null;
+    productCategory.value = null;
+    productDescription.value = null;
+    productImage.value = null;
 }
