@@ -7,8 +7,14 @@ var productImage = document.getElementById("productImage");
 
 
 // Array to store all products
-var productList = [];
-
+var productList;
+// Check if productList exists in local storage, if not initialize it
+if (localStorage.getItem("productList")) {
+    productList = JSON.parse(localStorage.getItem("productList"));
+    displayProducts(); // Call function to display products on page load
+} else {
+    productList = [];
+}
 // Function to add a new product
 function addProduct(){
     // Create object with product info
@@ -22,10 +28,12 @@ function addProduct(){
         // Add product to the list
     productList.push(object);
     console.log(productList);
+        // Save products to local storage
+    saveProductsToLocalStorage();
     // Display products
     displayProducts();
     // Clear input fields
-    ClearInputs();
+    // ClearInputs();
 };
 
 // Function to display all products
@@ -62,4 +70,10 @@ function deleteProduct(index){
     productList.splice(index, 1);
     console.log(productList);
     displayProducts();
+    saveProductsToLocalStorage();
+}
+
+// Function to save products to local storage
+function saveProductsToLocalStorage() {
+    localStorage.setItem("productList" , JSON.stringify(productList));
 }
