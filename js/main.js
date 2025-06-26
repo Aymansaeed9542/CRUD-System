@@ -4,8 +4,9 @@ var productPrice = document.getElementById("productPrice");
 var productCategory = document.getElementById("productCategory");
 var productDescription = document.getElementById("productDescription");
 var productImage = document.getElementById("productImage");
-
-
+var addBtn = document.getElementById("addBtn");
+var updateBtn = document.getElementById("updateBtn");
+var globalIndex;
 // Array to store all products
 var productList;
 // Check if productList exists in local storage, if not initialize it
@@ -48,7 +49,7 @@ function displayProducts() {
                 <p>product price: ${productList[i].price} </p>
                 <p>product category: ${productList[i].category}</p>
                 <p>product description: ${productList[i].description}</p>
-                <button class="btn btn-outline-success">Update</button>
+                <button onclick="setFormToUpdate(${i})" class="btn btn-outline-success">Update</button>
                 <button onclick="deleteProduct(${i})" class="btn btn-outline-danger">Delete</button>
             </div>`
     }
@@ -76,4 +77,26 @@ function deleteProduct(index){
 // Function to save products to local storage
 function saveProductsToLocalStorage() {
     localStorage.setItem("productList" , JSON.stringify(productList));
+}
+
+// Function to set form to update
+function setFormToUpdate(index){
+    globalIndex = index;
+    productName.value = productList[index].name
+    productPrice.value = productList[index].price
+    productCategory.value = productList[index].category
+    productDescription.value = productList[index].description
+    addBtn.classList.add("d-none");
+    updateBtn.classList.remove("d-none");
+
+}
+
+// Function to update product
+function updateProduct(){
+    productList[globalIndex].name = productName.value;
+    productList[globalIndex].price = productPrice.value;
+    productList[globalIndex].category = productCategory.value;
+    productList[globalIndex].description = productDescription.value;
+    displayProducts();
+    saveProductsToLocalStorage();
 }
